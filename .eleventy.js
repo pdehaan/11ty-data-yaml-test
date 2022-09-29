@@ -9,13 +9,13 @@ const yaml = require("js-yaml");
  */
 module.exports = function (eleventyConfig) {
   eleventyConfig.addGlobalData("eleventyExcludeFromCollections", true);
-  eleventyConfig.addDataExtension("yml", contents => yaml.load(contents));
+  eleventyConfig.addDataExtension("yml", (contents) => yaml.load(contents));
 
   eleventyConfig.addFilter("assert", function (value, msg = "") {
     try {
       assert.ok(value);
     } catch (err) {
-      msg =  `${msg.toString()} ${err.message}`.trim();
+      msg = `${msg.toString()} ${err.message}`.trim();
       throw new Error(msg);
     }
     return value;
@@ -29,7 +29,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(require("@11ty/eleventy-plugin-directory-output"));
 
   eleventyConfig.on("eleventy.after", () => {
-    console.info(`[eleventy.after] Memory used: ${getHeap()}`)
+    console.info(`[eleventy.after] Memory used: ${getHeap()}`);
   });
   eleventyConfig.setQuietMode(true);
 
@@ -37,7 +37,7 @@ module.exports = function (eleventyConfig) {
     dir: {
       input: "src",
       output: "www",
-    }
+    },
   };
 };
 
@@ -46,7 +46,7 @@ function getHeap() {
   return `${displayGb(value)} GB`;
 }
 
-function displayGb (num) {
-  const gb = num / (1024 * 1024 * 1024)
-  return Math.round(gb * 100) / 100
+function displayGb(num) {
+  const gb = num / (1024 * 1024 * 1024);
+  return Math.round(gb * 100) / 100;
 }
