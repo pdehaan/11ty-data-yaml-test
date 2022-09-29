@@ -1,0 +1,22 @@
+{
+  "name": "11ty-data-yaml-test",
+  "description": "",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com>",
+  "dependencies": {},
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0-canary.16",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "js-yaml": "^4.1.0"
+  },
+  "keywords": [],
+  "license": "MPL-2.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "postbuild": "# npx prettier www --write --loglevel=warn",
+    "prebuild": "rm -rf www",
+    "serve": "npm run build -- --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

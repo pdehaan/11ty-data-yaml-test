@@ -1,0 +1,11 @@
+---
+title: Nunjucks
+---
+
+<p>1. {{ teammates.steve.name | assert }} ({{ teammates.steve.from }} &mdash; {{ teammates.steve.to }})</p>
+<p>2. {{ teammates.tim.name | assert }} ({{ teammates.tim.from }} &mdash; {{ teammates.tim.to }})</p>
+<p>3. {{ teammates.peter.name }} ({{ teammates.peter.from }} &mdash; {{ teammates.peter.to }})</p>
+
+{% for handle, teammate in teammates -%}
+  <p data-handle="{{ handle }}">{{ teammate.name }}</p>
+{% endfor -%}

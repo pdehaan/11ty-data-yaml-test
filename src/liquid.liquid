@@ -1,0 +1,14 @@
+---
+title: Liquid
+eleventyExcludeFromCollections: false
+---
+
+<p>1. {{ teammates.steve.name | assert }} ({{ teammates.steve.from }} &mdash; {{ teammates.steve.to }})</p>
+<p>2. {{ teammates.tim.name | assert }} ({{ teammates.tim.from }} &mdash; {{ teammates.tim.to }})</p>
+<p>3. {{ teammates.peter.name }} ({{ teammates.peter.from }} &mdash; {{ teammates.peter.to }})</p>
+
+{% for res in teammates -%}
+  {%- assign handle = res[0] -%}
+  {%- assign teammate = res[1] -%}
+  <p data-handle="{{ handle }}">{{ teammate.name }}</p>
+{% endfor -%}
